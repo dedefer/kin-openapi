@@ -866,7 +866,7 @@ func (loader *Loader) resolveCallbackRef(doc *T, component *CallbackRef, documen
 			if pathItem == nil {
 				return errors.New("invalid path item: value MUST be an object")
 			}
-			ref := pathItem.Ref
+			originalRef, ref := pathItem.Ref, pathItem.Ref
 			if ref != "" {
 				if isSingleRefElement(ref) {
 					var p PathItem
@@ -899,6 +899,8 @@ func (loader *Loader) resolveCallbackRef(doc *T, component *CallbackRef, documen
 						break
 					}
 				}
+
+				pathItem.Ref = originalRef
 			}
 			return loader.resolvePathItemRefContinued(doc, pathItem, documentPath)
 		}()
@@ -960,7 +962,8 @@ func (loader *Loader) resolvePathItemRef(doc *T, entrypoint string, pathItem *Pa
 	if pathItem == nil {
 		return errors.New("invalid path item: value MUST be an object")
 	}
-	ref := pathItem.Ref
+
+	originalRef, ref := pathItem.Ref, pathItem.Ref
 	if ref != "" {
 		if isSingleRefElement(ref) {
 			var p PathItem
@@ -990,6 +993,8 @@ func (loader *Loader) resolvePathItemRef(doc *T, entrypoint string, pathItem *Pa
 
 			*pathItem = *resolved
 		}
+
+		pathItem.Ref = originalRef
 	}
 	return loader.resolvePathItemRefContinued(doc, pathItem, documentPath)
 }

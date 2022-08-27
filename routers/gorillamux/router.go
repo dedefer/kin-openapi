@@ -15,8 +15,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/getkin/kin-openapi/routers"
+	"github.com/dedefer/kin-openapi/openapi3"
+	"github.com/dedefer/kin-openapi/routers"
 )
 
 var _ routers.Router = &Router{}
@@ -78,7 +78,7 @@ func NewRouter(doc *openapi3.T) (routers.Router, error) {
 		// then url.Parse() cannot parse "http://domain.tld:`bEncode({port})`/bla"
 		// and mux is not able to set the {port} variable
 		// So we just use the default value for this variable.
-		// See https://github.com/getkin/kin-openapi/issues/367
+		// See https://github.com/dedefer/kin-openapi/issues/367
 		var varsUpdater varsf
 		if lhs := strings.Index(serverURL, ":{"); lhs > 0 {
 			rest := serverURL[lhs+len(":{"):]

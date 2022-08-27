@@ -7,7 +7,7 @@ import (
 
 	"github.com/go-openapi/jsonpointer"
 
-	"github.com/getkin/kin-openapi/jsoninfo"
+	"github.com/dedefer/kin-openapi/jsoninfo"
 )
 
 type SecuritySchemes map[string]*SecuritySchemeRef

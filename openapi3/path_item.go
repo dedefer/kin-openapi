@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/getkin/kin-openapi/jsoninfo"
+	"github.com/dedefer/kin-openapi/jsoninfo"
 )
 
 // PathItem is specified by OpenAPI/Swagger standard version 3.

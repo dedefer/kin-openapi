@@ -1,6 +1,6 @@
-[![CI](https://github.com/getkin/kin-openapi/workflows/go/badge.svg)](https://github.com/getkin/kin-openapi/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/getkin/kin-openapi)](https://goreportcard.com/report/github.com/getkin/kin-openapi)
-[![GoDoc](https://godoc.org/github.com/getkin/kin-openapi?status.svg)](https://godoc.org/github.com/getkin/kin-openapi)
+[![CI](https://github.com/dedefer/kin-openapi/workflows/go/badge.svg)](https://github.com/dedefer/kin-openapi/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dedefer/kin-openapi)](https://goreportcard.com/report/github.com/dedefer/kin-openapi)
+[![GoDoc](https://godoc.org/github.com/dedefer/kin-openapi?status.svg)](https://godoc.org/github.com/dedefer/kin-openapi)
 [![Join Gitter Chat Channel -](https://badges.gitter.im/getkin/kin.svg)](https://gitter.im/getkin/kin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # Introduction
@@ -20,7 +20,7 @@ Here's some projects that depend on _kin-openapi_:
   * [github.com/goadesign/goa](https://github.com/goadesign/goa) - "Design-based APIs and microservices in Go"
   * [github.com/hashicorp/nomad-openapi](https://github.com/hashicorp/nomad-openapi) - "Nomad is an easy-to-use, flexible, and performant workload orchestrator that can deploy a mix of microservice, batch, containerized, and non-containerized applications. Nomad is easy to operate and scale and has native Consul and Vault integrations."
   * [gitlab.com/jamietanna/httptest-openapi](https://gitlab.com/jamietanna/httptest-openapi) ([*blog post*](https://www.jvt.me/posts/2022/05/22/go-openapi-contract-test/)) - "Go OpenAPI Contract Verification for use with `net/http`"
-  * (Feel free to add your project by [creating an issue](https://github.com/getkin/kin-openapi/issues/new) or a pull request)
+  * (Feel free to add your project by [creating an issue](https://github.com/dedefer/kin-openapi/issues/new) or a pull request)
 
 ## Alternatives
 * [go-swagger](https://github.com/go-swagger/go-swagger) stated [*OpenAPIv3 won't be supported*](https://github.com/go-swagger/go-swagger/issues/1122#issuecomment-575968499)
@@ -32,16 +32,16 @@ Here's some projects that depend on _kin-openapi_:
 Be sure to check [OpenAPI Initiative](https://github.com/OAI)'s [great tooling list](https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md) as well as [OpenAPI.Tools](https://openapi.tools/).
 
 # Structure
-  * _openapi2_ ([godoc](https://godoc.org/github.com/getkin/kin-openapi/openapi2))
+  * _openapi2_ ([godoc](https://godoc.org/github.com/dedefer/kin-openapi/openapi2))
     * Support for OpenAPI 2 files, including serialization, deserialization, and validation.
-  * _openapi2conv_ ([godoc](https://godoc.org/github.com/getkin/kin-openapi/openapi2conv))
+  * _openapi2conv_ ([godoc](https://godoc.org/github.com/dedefer/kin-openapi/openapi2conv))
     * Converts OpenAPI 2 files into OpenAPI 3 files.
-  * _openapi3_ ([godoc](https://godoc.org/github.com/getkin/kin-openapi/openapi3))
+  * _openapi3_ ([godoc](https://godoc.org/github.com/dedefer/kin-openapi/openapi3))
     * Support for OpenAPI 3 files, including serialization, deserialization, and validation.
-  * _openapi3filter_ ([godoc](https://godoc.org/github.com/getkin/kin-openapi/openapi3filter))
+  * _openapi3filter_ ([godoc](https://godoc.org/github.com/dedefer/kin-openapi/openapi3filter))
     * Validates HTTP requests and responses
     * Provides a [gorilla/mux](https://github.com/gorilla/mux) router for OpenAPI operations
-  * _openapi3gen_ ([godoc](https://godoc.org/github.com/getkin/kin-openapi/openapi3gen))
+  * _openapi3gen_ ([godoc](https://godoc.org/github.com/dedefer/kin-openapi/openapi3gen))
     * Generates `*openapi3.Schema` values for Go types.
 
 # Some recipes
@@ -70,9 +70,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/getkin/kin-openapi/openapi3filter"
-	"github.com/getkin/kin-openapi/routers/gorillamux"
+	"github.com/dedefer/kin-openapi/openapi3"
+	"github.com/dedefer/kin-openapi/openapi3filter"
+	"github.com/dedefer/kin-openapi/routers/gorillamux"
 )
 
 func main() {
@@ -206,7 +206,7 @@ func arrayUniqueItemsChecker(items []interface{}) bool {
 * Renamed `routers.Route.Swagger` to `routers.Route.Spec`.
 
 ### v0.51.0
-* Type `openapi3filter.Route` moved to `routers` (and `Route.Handler` was dropped. See https://github.com/getkin/kin-openapi/issues/329)
+* Type `openapi3filter.Route` moved to `routers` (and `Route.Handler` was dropped. See https://github.com/dedefer/kin-openapi/issues/329)
 * Type `openapi3filter.RouteError` moved to `routers` (so did `ErrPathNotFound` and `ErrMethodNotAllowed` which are now `RouteError`s)
 * Routers' `FindRoute(...)` method now takes only one argument: `*http.Request`
 * `getkin/kin-openapi/openapi3filter.Router` moved to `getkin/kin-openapi/routers/legacy`
